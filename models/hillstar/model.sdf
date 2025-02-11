@@ -1,44 +1,886 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sdf version='1.9'>
-  <model name='hillstar'>
-    <include merge='true'>
-      <uri>model://x500_base</uri>
-    </include>
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="hillstar">
+    <link name="quad_plate_arm_subassembly">
+      <frame name="quad_plate_arm_subassembly_frame">
+        <pose>0 0 0 0 -0 0</pose>
+        
+            <sensor name="air_pressure_sensor" type="air_pressure">
+    <always_on>1</always_on>
+    <update_rate>50</update_rate>
+        <air_pressure>
+          <pressure>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </pressure>
+        </air_pressure>
+      </sensor>
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>250</update_rate>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00018665</stddev>
+                <dynamic_bias_stddev>3.8785e-05</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>1000</dynamic_bias_correlation_time>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00018665</stddev>
+                <dynamic_bias_stddev>3.8785e-05</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>1000</dynamic_bias_correlation_time>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00018665</stddev>
+                <dynamic_bias_stddev>3.8785e-05</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>1000</dynamic_bias_correlation_time>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00186</stddev>
+                <dynamic_bias_stddev>0.006</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>300</dynamic_bias_correlation_time>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00186</stddev>
+                <dynamic_bias_stddev>0.006</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>300</dynamic_bias_correlation_time>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00186</stddev>
+                <dynamic_bias_stddev>0.006</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>300</dynamic_bias_correlation_time>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+      </sensor>
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+      </sensor>
+
+      </frame>
+      
+      <visual name="quad_plate_arm_subassembly_0_center_plate_visual">
+        <pose>-0.019008670331682603338 -0.1211260709384205797 0.085063192385377309201 1.7409168090239930393 0.30624497276927448164 -0.019868209193362563331</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/center_plate.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="quad_plate_arm_subassembly_0_center_plate_visual">
+        <pose>-0.019008670331682603338 -0.1211260709384205797 0.085063192385377309201 1.7409168090239930393 0.30624497276927448164 -0.019868209193362563331</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/center_plate.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="quad_plate_arm_subassembly_1_arm_tube_visual">
+        <pose>-0.26576431903724029304 -0.11888934750086006809 0.17936107599937267665 2.6915166167636024319 0.16213331818133094875 -1.6424068814758652213</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="quad_plate_arm_subassembly_1_arm_tube_visual">
+        <pose>-0.26576431903724029304 -0.11888934750086006809 0.17936107599937267665 2.6915166167636024319 0.16213331818133094875 -1.6424068814758652213</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="quad_plate_arm_subassembly_2_arm_tube_visual">
+        <pose>-0.033003764840364879785 -0.38345872035941519496 0.057293382674650228381 -3.1110985115202454132 0.30624497276927659106 -0.019868209193361976994</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="quad_plate_arm_subassembly_2_arm_tube_visual">
+        <pose>-0.033003764840364879785 -0.38345872035941519496 0.057293382674650228381 -3.1110985115202454132 0.30624497276927659106 -0.019868209193361976994</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="quad_plate_arm_subassembly_3_arm_tube_visual">
+        <pose>0.0042364232223342035769 0.13568974417047480197 0.14242822258265019908 2.831845831201151853 -0.30624497276927364897 3.1217244443964307088</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="quad_plate_arm_subassembly_3_arm_tube_visual">
+        <pose>0.0042364232223342035769 0.13568974417047480197 0.14242822258265019908 2.831845831201151853 -0.30624497276927364897 3.1217244443964307088</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="quad_plate_arm_subassembly_4_arm_tube_visual">
+        <pose>0.23699697741920955352 -0.12887962868808033878 0.020360529257927778568 -2.9707692970826968804 -0.16213331818132814544 1.4991857721139281168</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="quad_plate_arm_subassembly_4_arm_tube_visual">
+        <pose>0.23699697741920955352 -0.12887962868808033878 0.020360529257927778568 -2.9707692970826968804 -0.16213331818132814544 1.4991857721139281168</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/arm_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="quad_plate_arm_subassembly_frame">-0.0216326970845220172 -0.11956494455487878814 0.076665608733404680408 0 0 0</pose>
+        <mass>0.68528315975766018742</mass>
+        <inertia>
+          <ixx>0.0020857413319630047251</ixx>
+          <ixy>-9.5585741274459214579e-05</ixy>
+          <ixz>0.00051246605769906606112</ixz>
+          <iyy>0.0019821469615747809058</iyy>
+          <iyz>-0.00030567528948421463821</iyz>
+          <izz>0.0035652401299770355471</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <link name="motor_subassembly">
+      <frame name="motor_subassembly_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="motor_subassembly_0_mount_tube_visual">
+        <pose>-0.033003764840364872846 -0.38345872035941519496 0.05729338267465023532 0.030494142069547054003 0.30624497276928253076 -0.019868209193357907333</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_0_mount_tube_visual">
+        <pose>-0.033003764840364872846 -0.38345872035941519496 0.05729338267465023532 0.030494142069547054003 0.30624497276928253076 -0.019868209193357907333</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_1_motor_visual">
+        <pose>-0.034331310386067633023 -0.40836466014659256185 0.054660554130750736712 0.03049414206953653117 0.30624497276927781231 -0.019868209193356023423</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</ambient>
+          <diffuse>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_1_motor_visual">
+        <pose>-0.034331310386067633023 -0.40836466014659256185 0.054660554130750736712 0.03049414206953653117 0.30624497276927781231 -0.019868209193356023423</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_2_mount_bottom_visual">
+        <pose>-0.033729960206868234152 -0.40843760034013981697 0.056566612285724723885 0.030494142069547414825 0.30624497276927781231 -0.019868209193356023423</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</ambient>
+          <diffuse>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_2_mount_bottom_visual">
+        <pose>-0.033729960206868234152 -0.40843760034013981697 0.056566612285724723885 0.030494142069547414825 0.30624497276927781231 -0.019868209193356023423</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_3_mount_top_visual">
+        <pose>-0.033729960206868261907 -0.40843760034013981697 0.056566612285724730824 0.0304941420695473836 0.30624497276927781231 -0.019868209193356023423</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</ambient>
+          <diffuse>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_3_mount_top_visual">
+        <pose>-0.033729960206868261907 -0.40843760034013981697 0.056566612285724730824 0.0304941420695473836 0.30624497276927781231 -0.019868209193356023423</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="motor_subassembly_frame">-0.032494564210229413825 -0.41907392063743126309 0.061141245130587426604 0 0 0</pose>
+        <mass>0.11166174231785991333</mass>
+        <inertia>
+          <ixx>1.975451705002958955e-05</ixx>
+          <ixy>2.674489293299144712e-07</ixy>
+          <ixz>-1.055320505493969956e-06</ixz>
+          <iyy>1.573556897557882797e-05</iyy>
+          <iyz>1.1188298293420561327e-06</iyz>
+          <izz>1.6675720659852619914e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <link name="prop">
+      <frame name="prop_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="prop_0_prop_visual">
+        <pose>-0.025974830470932262771 -0.42191173294338840671 0.081935012183409691722 3.0454629945868489926 1.2630844151318565416 3.0208882517613622198</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="prop_0_prop_visual">
+        <pose>-0.025974830470932262771 -0.42191173294338840671 0.081935012183409691722 3.0454629945868489926 1.2630844151318565416 3.0208882517613622198</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="prop_frame">-0.026425843105331584676 -0.42185702779822803477 0.080505468567179258588 0 0 0</pose>
+        <mass>0.024723492811985364054</mass>
+        <inertia>
+          <ixx>0.00022450886340742820762</ixx>
+          <ixy>-6.5037079339806142398e-06</ixy>
+          <ixz>4.2117127659904294413e-08</ixz>
+          <iyy>1.2225417676117629202e-06</iyy>
+          <iyz>-6.5280371610261551336e-06</iyz>
+          <izz>0.0002251681204230050466</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="rotor0" type="revolute">
+      <pose>-0.025974830470932262771 -0.42191173294338840671 0.081935012183409691722 0.30637866927317386478 -0.029074911799053786837 1.5417321383048605554</pose>
+      <parent>motor_subassembly</parent>
+      <child>prop</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="tilt0" type="revolute">
+      <pose>-0.033003764840364872846 -0.38345872035941519496 0.05729338267465023532 -1.5403021847253495213 0.30624497276928253076 -0.019868209193357907333</pose>
+      <parent>quad_plate_arm_subassembly</parent>
+      <child>motor_subassembly</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <link name="motor_subassembly_2">
+      <frame name="motor_subassembly_2_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="motor_subassembly_2_0_mount_tube_visual">
+        <pose>0.0042364232223340405128 0.13568974417047474645 0.1424282225826503101 -0.30974682238864048589 -0.30624497276927253875 3.1217244443964307088</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_2_0_mount_tube_visual">
+        <pose>0.0042364232223340405128 0.13568974417047474645 0.1424282225826503101 -0.30974682238864048589 -0.30624497276927253875 3.1217244443964307088</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_2_1_motor_visual">
+        <pose>0.0064443776108936926678 0.1600705952858433867 0.14787790480350260225 -0.30974682238863338046 -0.30624497276927692413 3.121724444396411613</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</ambient>
+          <diffuse>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_2_1_motor_visual">
+        <pose>0.0064443776108936926678 0.1600705952858433867 0.14787790480350260225 -0.30974682238863338046 -0.30624497276927692413 3.121724444396411613</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_2_2_mount_bottom_visual">
+        <pose>0.0070064191783531029611 0.15944967167735971114 0.14969409949264708692 -0.30974682238863487926 -0.30624497276927664657 3.121724444396411613</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</ambient>
+          <diffuse>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_2_2_mount_bottom_visual">
+        <pose>0.0070064191783531029611 0.15944967167735971114 0.14969409949264708692 -0.30974682238863487926 -0.30624497276927664657 3.121724444396411613</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_2_3_mount_top_visual">
+        <pose>0.0070064191783530726035 0.1594496716773594891 0.14969409949264700366 -0.30974682238863793238 -0.30624497276927753475 3.121724444396412057</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</ambient>
+          <diffuse>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_2_3_mount_top_visual">
+        <pose>0.0070064191783530726035 0.1594496716773594891 0.14969409949264700366 -0.30974682238863793238 -0.30624497276927753475 3.121724444396412057</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="motor_subassembly_2_frame">0.009603793657975199724 0.1678000717739886738 0.15738235302899769574 0 0 0</pose>
+        <mass>0.11166174231785991333</mass>
+        <inertia>
+          <ixx>1.9656363466328760376e-05</ixx>
+          <ixy>-3.8743811183126993921e-07</ixy>
+          <ixz>-1.3245354118807457093e-06</ixz>
+          <iyy>1.6551651583057126955e-05</iyy>
+          <iyz>-1.0032053427509693381e-06</iyz>
+          <izz>1.5957791636076213977e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <link name="prop_2">
+      <frame name="prop_2_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="prop_2_0_prop_visual">
+        <pose>0.015978978317064240766 0.16294716671627054727 0.17784566625109174409 -0.76708388841166530447 1.1387178833314415272 2.3064605785630791779</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="prop_2_0_prop_visual">
+        <pose>0.015978978317064240766 0.16294716671627054727 0.17784566625109174409 -0.76708388841166530447 1.1387178833314415272 2.3064605785630791779</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="prop_2_frame">0.015557447141469697358 0.16341285942263339415 0.17648352023423363732 0 0 0</pose>
+        <mass>0.024723492811985364054</mass>
+        <inertia>
+          <ixx>0.0002219411908097953948</ixx>
+          <ixy>-2.3635385115115151806e-05</ixy>
+          <ixz>-7.0004758367516995465e-06</ixz>
+          <iyy>2.2571053657020542782e-05</iyy>
+          <iyz>-6.2039933488744264042e-05</iyz>
+          <izz>0.00020638728113125853259</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="rotor1" type="revolute">
+      <pose>0.015978978317064240766 0.16294716671627054727 0.17784566625109174409 -0.32054227591089951011 0.29489049775679548882 -1.6868550911294408756</pose>
+      <parent>motor_subassembly_2</parent>
+      <child>prop_2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="tilt1" type="revolute">
+      <pose>0.0042364232223340405128 0.13568974417047474645 0.1424282225826503101 -1.8805431491835371549 -0.30624497276927253875 3.1217244443964307088</pose>
+      <parent>quad_plate_arm_subassembly</parent>
+      <child>motor_subassembly_2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <link name="motor_subassembly_3">
+      <frame name="motor_subassembly_3_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="motor_subassembly_3_0_mount_tube_visual">
+        <pose>0.23699697741920958127 -0.12887962868808022776 0.020360529257928115104 0.17082335650709459807 -0.16213331818132720175 1.499185772113929227</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_3_0_mount_tube_visual">
+        <pose>0.23699697741920958127 -0.12887962868808022776 0.020360529257928115104 0.17082335650709459807 -0.16213331818132720175 1.499185772113929227</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_3_1_motor_visual">
+        <pose>0.26130269679962081497 -0.12961640046909320145 0.014221378441780995264 0.17082335650709723485 -0.1621333181813242319 1.499185772113929449</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</ambient>
+          <diffuse>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_3_1_motor_visual">
+        <pose>0.26130269679962081497 -0.12961640046909320145 0.014221378441780995264 0.17082335650709723485 -0.1621333181813242319 1.499185772113929449</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_3_2_mount_bottom_visual">
+        <pose>0.26161904964397680873 -0.12995805978550617477 0.016166420803627165603 0.17082335650709429276 -0.16213331818132639683 1.499185772113929227</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</ambient>
+          <diffuse>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_3_2_mount_bottom_visual">
+        <pose>0.26161904964397680873 -0.12995805978550617477 0.016166420803627165603 0.17082335650709429276 -0.16213331818132639683 1.499185772113929227</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_3_3_mount_top_visual">
+        <pose>0.26161904964397697526 -0.1299580597855060915 0.016166420803627287034 0.17082335650709837283 -0.16213331818132620255 1.4991857721139290049</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</ambient>
+          <diffuse>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_3_3_mount_top_visual">
+        <pose>0.26161904964397697526 -0.1299580597855060915 0.016166420803627287034 0.17082335650709837283 -0.16213331818132620255 1.4991857721139290049</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="motor_subassembly_3_frame">0.27272913265153830853 -0.13128370623523269445 0.019390315258445898344 0 0 0</pose>
+        <mass>0.11166174231785991333</mass>
+        <inertia>
+          <ixx>1.5487318766860729078e-05</ixx>
+          <ixy>4.8866005211502158137e-07</ixy>
+          <ixz>-9.6957779261422458007e-07</ixz>
+          <iyy>1.9946381073754198556e-05</iyy>
+          <iyz>6.1905407065122261522e-07</iyz>
+          <izz>1.6732106844847414231e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <link name="prop_3">
+      <frame name="prop_3_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="prop_3_0_prop_visual">
+        <pose>0.27820084915516918311 -0.1351096761057922202 0.040327438461400522129 0.80465657218117003779 1.3358257028572244618 2.3177544616432350644</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="prop_3_0_prop_visual">
+        <pose>0.27820084915516918311 -0.1351096761057922202 0.040327438461400522129 0.80465657218117003779 1.3358257028572244618 2.3177544616432350644</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="prop_3_frame">0.2779635845219020629 -0.1348534316184825943 0.038868656690015865318 0 0 0</pose>
+        <mass>0.024723492811985364054</mass>
+        <inertia>
+          <ixx>7.5784166511828351216e-06</ixx>
+          <ixy>9.4855851942327914898e-06</ixy>
+          <ixz>3.7099033941795986748e-05</ixz>
+          <iyy>0.00022423189490526501959</iyy>
+          <iyz>-1.7534592442865622475e-06</iyz>
+          <izz>0.0002190892140416232951</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="rotor2" type="revolute">
+      <pose>0.27820084915516918311 -0.1351096761057922202 0.040327438461400522129 -0.16448534511629570032 -0.16856142630175877106 3.0978212656583816731</pose>
+      <parent>motor_subassembly_3</parent>
+      <child>prop_3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="tilt2" type="revolute">
+      <pose>0.23699697741920958127 -0.12887962868808022776 0.020360529257928115104 -1.3999729702878020987 -0.16213331818132720175 1.499185772113929227</pose>
+      <parent>quad_plate_arm_subassembly</parent>
+      <child>motor_subassembly_3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <link name="motor_subassembly_4">
+      <frame name="motor_subassembly_4_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="motor_subassembly_4_0_mount_tube_visual">
+        <pose>-0.26576431903724029304 -0.11888934750086008196 0.17936107599937264889 -0.45007603682618585461 0.16213331818132953321 -1.6424068814758683299</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_4_0_mount_tube_visual">
+        <pose>-0.26576431903724029304 -0.11888934750086008196 0.17936107599937264889 -0.45007603682618585461 0.16213331818132953321 -1.6424068814758683299</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_tube.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_4_1_motor_visual">
+        <pose>-0.28918962957479460441 -0.1186776643916559737 0.18831708049247306014 -0.4500760368261852995 0.16213331818133033813 -1.6424068814758698842</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</ambient>
+          <diffuse>0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_4_1_motor_visual">
+        <pose>-0.28918962957479460441 -0.1186776643916559737 0.18831708049247306014 -0.4500760368261852995 0.16213331818133033813 -1.6424068814758698842</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/motor.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_4_2_mount_bottom_visual">
+        <pose>-0.28834259067249218278 -0.11902986887727413923 0.19009429097474495052 -0.45007603682618885221 0.16213331818133028261 -1.6424068814758698842</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</ambient>
+          <diffuse>0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_4_2_mount_bottom_visual">
+        <pose>-0.28834259067249218278 -0.11902986887727413923 0.19009429097474495052 -0.45007603682618885221 0.16213331818133028261 -1.6424068814758698842</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_bottom.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="motor_subassembly_4_3_mount_top_visual">
+        <pose>-0.28834259067249218278 -0.11902986887727409759 0.19009429097474489501 -0.45007603682618851915 0.16213331818133031037 -1.6424068814758698842</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</ambient>
+          <diffuse>0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="motor_subassembly_4_3_mount_top_visual">
+        <pose>-0.28834259067249218278 -0.11902986887727409759 0.19009429097474489501 -0.45007603682618851915 0.16213331818133031037 -1.6424068814758698842</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/mount_top.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="motor_subassembly_4_frame">-0.29561990320379250008 -0.11999014262820990873 0.19913328290113962993 0 0 0</pose>
+        <mass>0.11166174231785991333</mass>
+        <inertia>
+          <ixx>1.6812441586069333923e-05</ixx>
+          <ixy>8.0333125006229357135e-08</ixy>
+          <ixz>9.4073852931720870634e-07</ixz>
+          <iyy>1.9962085434409441488e-05</iyy>
+          <iyz>7.0190237157620573296e-07</iyz>
+          <izz>1.5391279664982905769e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <link name="prop_4">
+      <frame name="prop_4_frame">
+        <pose>0 0 0 0 -0 0</pose>
+      </frame>
+      <visual name="prop_4_0_prop_visual">
+        <pose>-0.28819670130903696226 -0.12385489012132613884 0.21945323997310137165 -1.9304359911242772174 1.0942952963869769789 2.7475344751003425436</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</ambient>
+          <diffuse>0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+      <collision name="prop_4_0_prop_visual">
+        <pose>-0.28819670130903696226 -0.12385489012132613884 0.21945323997310137165 -1.9304359911242772174 1.0942952963869769789 2.7475344751003425436</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hillstar/quad_layout_sdf/prop.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose frame="prop_4_frame">-0.28883198048576369521 -0.12359073675711253204 0.21812033211139744693 0 0 0</pose>
+        <mass>0.024723492811985364054</mass>
+        <inertia>
+          <ixx>4.2243290037262106124e-05</ixx>
+          <ixy>-1.196142584635845153e-06</ixy>
+          <ixz>8.7072419402505233862e-05</ixz>
+          <iyy>0.00022464271695574479482</iyy>
+          <iyz>4.1383107792605252821e-07</iyz>
+          <izz>0.00018401351860506166033</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="rotor3" type="revolute">
+      <pose>-0.28819670130903696226 -0.12385489012132613884 0.21945323997310137165 0.17970024947810869786 0.44374924491581113628 0.0062236633681090614001</pose>
+      <parent>motor_subassembly_4</parent>
+      <child>prop_4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="tilt3" type="revolute">
+      <pose>-0.26576431903724029304 -0.11888934750086008196 0.17936107599937264889 -2.0208723636210823571 0.16213331818132953321 -1.6424068814758683299</pose>
+      <parent>quad_plate_arm_subassembly</parent>
+      <child>motor_subassembly_4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1</effort>
+          <velocity>20</velocity>
+        </limit>
+      </axis>
+    </joint>
+    
     <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
-      <jointName>rotor_0_joint</jointName>
-      <linkName>rotor_0</linkName>
-      <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.0125</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>1000.0</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
-      <momentConstant>0.016</momentConstant>
-      <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>0</motorNumber>
-      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
-      <motorType>velocity</motorType>
-    </plugin>
-    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
-      <jointName>rotor_1_joint</jointName>
-      <linkName>rotor_1</linkName>
-      <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.0125</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>1000.0</maxRotVelocity>
-      <motorConstant>8.54858e-06</motorConstant>
-      <momentConstant>0.016</momentConstant>
-      <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>1</motorNumber>
-      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
-      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
-      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
-      <motorType>velocity</motorType>
-    </plugin>
-    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
-      <jointName>rotor_2_joint</jointName>
-      <linkName>rotor_2</linkName>
+      <jointName>rotor0</jointName>
+      <linkName>prop</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
@@ -52,9 +894,11 @@
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
+    
+    
     <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
-      <jointName>rotor_3_joint</jointName>
-      <linkName>rotor_3</linkName>
+      <jointName>rotor1</jointName>
+      <linkName>prop_2</linkName>
       <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
@@ -62,11 +906,47 @@
       <motorConstant>8.54858e-06</motorConstant>
       <momentConstant>0.016</momentConstant>
       <commandSubTopic>command/motor_speed</commandSubTopic>
-      <motorNumber>3</motorNumber>
+      <motorNumber>2</motorNumber>
       <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
       <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
       <motorType>velocity</motorType>
     </plugin>
+    
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor2</jointName>
+      <linkName>prop_3</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1000.0</maxRotVelocity>
+      <motorConstant>8.54858e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>command/motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+      <jointName>rotor3</jointName>
+      <linkName>prop_4</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1000.0</maxRotVelocity>
+      <motorConstant>8.54858e-06</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>command/motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+    
+    
   </model>
 </sdf>
